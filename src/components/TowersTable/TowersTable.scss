@@ -1,0 +1,80 @@
+@use '../../styles/scss/variables' as *;
+
+$danger: #ef4444;
+$success: #16a34a;
+
+.table-container {
+  overflow-x: auto;
+  margin: 0px 8px;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+
+  thead {
+    background-color: $primary-color;
+  }
+  thead th {
+    text-align: left;
+    padding: 12px 6px;
+    font-size: 0.9rem;
+  }
+  tbody td {
+    padding: 10px 6px;
+    font-size: 0.95rem;
+  }
+
+  .status-active,
+  .status-offline {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-transform: capitalize;
+  }
+
+  .status-active {
+    background-color: $success;
+  }
+
+  .status-offline {
+    background-color: $danger;
+  }
+}
+
+.signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.bar {
+  width: 4px;
+  background-color: #d1d5db;
+  border-radius: 2px;
+}
+
+.bar.active {
+  background-color: $success;
+}

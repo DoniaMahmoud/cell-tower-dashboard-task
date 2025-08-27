@@ -1,11 +1,11 @@
 @use '../../styles/scss/variables' as *;
 
 .dashboard-container {
-  width: 80%;
+  width: 75%;
   background-color: $secondary-color;
   padding: 20px;
+  margin: 70px 0px;
   border-radius: 8px;
-  margin: 0 auto;
 }
 
 .summary-cards {

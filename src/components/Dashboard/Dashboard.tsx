@@ -1,4 +1,5 @@
 import { TOWERS } from '../../mocks/towerData';
+import TowersTable from '../TowersTable/TowersTable';
 import SummaryCard from '../SummaryCards/SummaryCard';
 import Title from '../Title/Title';
 import './Dashboard.scss';
@@ -20,6 +21,7 @@ const Dashboard = () => {
         <SummaryCard title="Active Towers" count={activeTowers} />
         <SummaryCard title="Average Signal" count={averageSignal} />
       </div>
+      <TowersTable />
     </div>
   );
 };
