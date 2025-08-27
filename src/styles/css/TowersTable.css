@@ -64,4 +64,10 @@ table .status-offline {
 
 .bar.active {
   background-color: #16a34a;
+}
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
 }/*# sourceMappingURL=TowersTable.css.map */

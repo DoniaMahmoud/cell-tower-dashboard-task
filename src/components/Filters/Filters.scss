@@ -1,0 +1,83 @@
+@use '../../styles/scss/variables' as *;
+
+.filters-container {
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 8px;
+
+  input,
+  select {
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: $primary-color;
+    outline: none;
+    color: #fff;
+    border: 1px solid transparent;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: lighten($primary-color, 20%);
+      background: darken($primary-color, 5%);
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  select {
+    width: 20%;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($primary-color, 7%);
+    }
+  }
+
+  .search-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+
+    input {
+      width: 100%;
+      padding-right: 35px;
+    }
+
+    button {
+      position: absolute;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        color: lighten($primary-color, 25%);
+      }
+    }
+  }
+
+  // Tablets and Mobiles
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .search-input {
+      width: 100%;
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+}

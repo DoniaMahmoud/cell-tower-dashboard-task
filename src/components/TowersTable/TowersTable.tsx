@@ -1,7 +1,15 @@
-import { TOWERS } from '../../mocks/towerData';
+import type { CellTower } from '../../types/tower';
 import './TowersTable.scss';
 
-const TowersTable = () => {
+type Props = {
+  towers: CellTower[];
+};
+
+const TowersTable = (props: Props) => {
+  const { towers } = props;
+
+  if (!towers.length) return <p className="no-results">No Results found</p>;
+
   return (
     <div className="table-container">
       <table>
@@ -15,7 +23,7 @@ const TowersTable = () => {
           </tr>
         </thead>
         <tbody>
-          {TOWERS.map(t => (
+          {towers.map(t => (
             <tr key={t.id}>
               <td>{t.name}</td>
               <td>{t.city}</td>

@@ -1,0 +1,72 @@
+.filters-container {
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 8px;
+}
+.filters-container input,
+.filters-container select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #212b37;
+  outline: none;
+  color: #fff;
+  border: 1px solid transparent;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.filters-container input:focus,
+.filters-container select:focus {
+  border-color: rgb(71.25, 92.8409090909, 118.75);
+  background: rgb(23.4375, 30.5397727273, 39.0625);
+}
+.filters-container input::placeholder,
+.filters-container select::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.filters-container select {
+  width: 20%;
+  cursor: pointer;
+}
+.filters-container select:hover {
+  background: rgb(19.6125, 25.5556818182, 32.6875);
+}
+.filters-container .search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.filters-container .search-input input {
+  width: 100%;
+  padding-right: 35px;
+}
+.filters-container .search-input button {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+.filters-container .search-input button:hover {
+  color: rgb(80.8125, 105.3011363636, 134.6875);
+}
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filters-container .search-input {
+    width: 100%;
+  }
+  .filters-container select {
+    width: 100%;
+  }
+}/*# sourceMappingURL=Filters.css.map */
