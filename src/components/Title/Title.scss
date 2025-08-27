@@ -1,0 +1,16 @@
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.last-update {
+  font-size: 12px;
+  color: #525864;
+}

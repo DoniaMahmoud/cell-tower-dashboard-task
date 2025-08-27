@@ -1,0 +1,6 @@
+@use 'styles/scss/mixins' as *;
+
+.app-container {
+  @include flex-center;
+  min-height: 100vh;
+}

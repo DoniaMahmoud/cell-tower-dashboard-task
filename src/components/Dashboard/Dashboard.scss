@@ -1,0 +1,9 @@
+@use '../../styles/scss/variables' as *;
+
+.dashboard-container {
+  width: 80%;
+  background-color: $secondary-color;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
