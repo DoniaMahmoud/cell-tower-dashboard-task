@@ -4,4 +4,10 @@
   padding: 20px;
   border-radius: 8px;
   margin: 0 auto;
+}
+
+.summary-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0px;
 }/*# sourceMappingURL=Dashboard.css.map */

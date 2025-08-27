@@ -1,0 +1,16 @@
+.summary-card {
+  background-color: #212b37;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  flex: 1;
+}
+
+.summary-card-title {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.summary-card-count {
+  font-size: 24px;
+}/*# sourceMappingURL=SummaryCard.css.map */
