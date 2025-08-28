@@ -7,6 +7,7 @@ import Filters from '../Filters/Filters';
 import { useMemo, useState } from 'react';
 import type { CellTower } from '../../types/tower';
 import BarChart from '../BarChart/BarChart';
+import PieChart from '../PieChart/PieChart';
 
 const Dashboard = () => {
   const towers = TOWERS;
@@ -54,7 +55,9 @@ const Dashboard = () => {
         <div className="chart-card">
           <BarChart towers={towers} />
         </div>
-        <div className="chart-card">{/* <PieChart data={filteredTowers} /> */}</div>
+        <div className="chart-card">
+          <PieChart towers={towers} />
+        </div>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ export const TOWERS: CellTower[] = [
     name: 'Alexandria Tower A',
     city: 'Alexandria',
     networkType: '5G',
-    status: 'active',
+    status: 'offline',
     signalStrength: 4,
   },
   {
@@ -59,7 +59,7 @@ export const TOWERS: CellTower[] = [
     name: 'Hurghada Tower A',
     city: 'Hurghada',
     networkType: '4G',
-    status: 'active',
+    status: 'offline',
     signalStrength: 3,
   },
   {
