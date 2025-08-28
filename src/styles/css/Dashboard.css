@@ -10,4 +10,22 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 15px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 8px;
+}
+@media (max-width: 900px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
+.charts .chart-card {
+  background: #212b37;
+  padding: 12px;
+  border-radius: 8px;
+  height: 320px;
 }/*# sourceMappingURL=Dashboard.css.map */

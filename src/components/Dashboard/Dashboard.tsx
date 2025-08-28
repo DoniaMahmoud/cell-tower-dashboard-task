@@ -6,6 +6,7 @@ import './Dashboard.scss';
 import Filters from '../Filters/Filters';
 import { useMemo, useState } from 'react';
 import type { CellTower } from '../../types/tower';
+import BarChart from '../BarChart/BarChart';
 
 const Dashboard = () => {
   const towers = TOWERS;
@@ -48,6 +49,13 @@ const Dashboard = () => {
       />
 
       <TowersTable towers={filteredTowers} />
+
+      <div className="charts">
+        <div className="chart-card">
+          <BarChart towers={towers} />
+        </div>
+        <div className="chart-card">{/* <PieChart data={filteredTowers} /> */}</div>
+      </div>
     </div>
   );
 };

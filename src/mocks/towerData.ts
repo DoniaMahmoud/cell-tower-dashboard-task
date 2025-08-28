@@ -1,7 +1,7 @@
 import type { CellTower } from '../types/tower';
 
 export const TOWERS: CellTower[] = [
-  // Cairo (3)
+  // Cairo (2)
   {
     id: 'c1',
     name: 'Cairo Tower A',
@@ -18,16 +18,8 @@ export const TOWERS: CellTower[] = [
     status: 'active',
     signalStrength: 5,
   },
-  {
-    id: 'c3',
-    name: 'Cairo Tower C',
-    city: 'Cairo',
-    networkType: '4G',
-    status: 'offline',
-    signalStrength: 2,
-  },
 
-  // Alexandria (3)
+  // Alexandria (4)
   {
     id: 'a1',
     name: 'Alexandria Tower A',
@@ -52,8 +44,16 @@ export const TOWERS: CellTower[] = [
     status: 'active',
     signalStrength: 5,
   },
+  {
+    id: 'a4',
+    name: 'Alexandria Tower D',
+    city: 'Alexandria',
+    networkType: '5G',
+    status: 'active',
+    signalStrength: 5,
+  },
 
-  // Hurghada (3)
+  // Hurghada (5)
   {
     id: 'h1',
     name: 'Hurghada Tower A',
@@ -78,8 +78,24 @@ export const TOWERS: CellTower[] = [
     status: 'active',
     signalStrength: 4,
   },
+  {
+    id: 'h4',
+    name: 'Hurghada Tower D',
+    city: 'Hurghada',
+    networkType: '5G',
+    status: 'active',
+    signalStrength: 2,
+  },
+  {
+    id: 'h5',
+    name: 'Hurghada Tower E',
+    city: 'Hurghada',
+    networkType: '5G',
+    status: 'active',
+    signalStrength: 1,
+  },
 
-  // Luxor (3)
+  // Luxor (1)
   {
     id: 'l1',
     name: 'Luxor Tower A',
@@ -87,21 +103,5 @@ export const TOWERS: CellTower[] = [
     networkType: '5G',
     status: 'offline',
     signalStrength: 2,
-  },
-  {
-    id: 'l2',
-    name: 'Luxor Tower B',
-    city: 'Luxor',
-    networkType: '4G',
-    status: 'active',
-    signalStrength: 3,
-  },
-  {
-    id: 'l3',
-    name: 'Luxor Tower C',
-    city: 'Luxor',
-    networkType: '5G',
-    status: 'active',
-    signalStrength: 4,
   },
 ];
