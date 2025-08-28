@@ -13,18 +13,26 @@ const Dashboard = () => {
   const towers = TOWERS;
 
   const [searchValue, setSearchValue] = useState('');
-  const [cityFilter, setCityFilter] = useState<'All' | CellTower['city']>('All');
+  const [cityFilter, setCityFilter] = useState<'all' | CellTower['city']>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | CellTower['status']>('all');
 
   const filteredTowers = useMemo(() => {
-    return towers.filter(tower => {
-      const query = searchValue.trim().toLowerCase();
-      const towerName = tower.name.toLowerCase();
-      const matchesNames = towerName.includes(query);
-      const matchesCity = cityFilter === 'All' || tower.city === cityFilter;
+    const searchQuery = searchValue.trim().toLowerCase();
+    const selectedCity = cityFilter.toLowerCase();
+    const selectedStatus = statusFilter.toLowerCase();
 
-      return matchesNames && matchesCity;
+    return towers.filter(({ name, city, status }) => {
+      const towerName = name.toLowerCase();
+      const towerCity = city.toLowerCase();
+      const towerStatus = status.toLowerCase();
+
+      const matchesName = !searchQuery || towerName.includes(searchQuery);
+      const matchesCity = selectedCity === 'all' || towerCity === selectedCity;
+      const matchesStatus = selectedStatus === 'all' || towerStatus === selectedStatus;
+
+      return matchesName && matchesCity && matchesStatus;
     });
-  }, [cityFilter, searchValue, towers]);
+  }, [cityFilter, searchValue, statusFilter, towers]);
 
   const totalTowers = towers.length;
   const activeTowers = towers.filter(tower => tower.status === 'active').length;
@@ -47,6 +55,9 @@ const Dashboard = () => {
         onSearch={setSearchValue}
         city={cityFilter}
         onCityFilter={setCityFilter}
+        status={statusFilter}
+        onStatusFilter={setStatusFilter}
+        towers={towers}
       />
 
       <TowersTable towers={filteredTowers} />
