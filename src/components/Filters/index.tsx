@@ -58,7 +58,7 @@ const Filters = (props: Props) => {
         <option value="all">All Statuses</option>
         {uniqueStatuses.map(s => (
           <option key={s} value={s}>
-            {s.charAt(0).toUpperCase() + s.slice(1)} {/* Display capitalized */}
+            {s.charAt(0).toUpperCase() + s.slice(1)}
           </option>
         ))}
       </select>

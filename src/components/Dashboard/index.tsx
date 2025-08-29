@@ -1,13 +1,13 @@
-import { TOWERS } from '../../mocks/towerData';
-import TowersTable from '../TowersTable/TowersTable';
-import SummaryCard from '../SummaryCards/SummaryCard';
-import Title from '../Title/Title';
-import './Dashboard.scss';
-import Filters from '../Filters/Filters';
 import { useMemo, useState } from 'react';
+import { TOWERS } from '../../mocks/towerData';
 import type { CellTower } from '../../types/tower';
-import BarChart from '../BarChart/BarChart';
-import PieChart from '../PieChart/PieChart';
+import SummaryCard from '../SummaryCards';
+import Filters from '../Filters';
+import BarChart from '../BarChart';
+import PieChart from '../PieChart';
+import TowersTable from '../TowersTable';
+import Title from '../Title';
+import './Dashboard.scss';
 
 const Dashboard = () => {
   const towers = TOWERS;

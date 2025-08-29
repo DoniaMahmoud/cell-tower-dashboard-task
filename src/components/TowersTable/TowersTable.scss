@@ -1,8 +1,5 @@
 @use '../../styles/scss/variables' as *;
 
-$danger: #ef4444;
-$success: #16a34a;
-
 .table-container {
   overflow-x: auto;
   margin: 0px 8px;
@@ -55,11 +52,11 @@ table {
   }
 
   .status-active {
-    background-color: $success;
+    background-color: $primary-green;
   }
 
   .status-offline {
-    background-color: $danger;
+    background-color: $primary-red;
   }
 }
 
@@ -76,7 +73,7 @@ table {
 }
 
 .bar.active {
-  background-color: $success;
+  background-color: $primary-green;
 }
 
 .no-results {

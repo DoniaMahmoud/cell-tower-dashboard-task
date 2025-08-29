@@ -4,10 +4,15 @@ import type { CellTower } from '../../types/tower';
 import './BarChart.scss';
 
 type Props = { towers: CellTower[] };
+
 type BarData = {
   city: string;
   count: number;
 };
+
+const MARGINS = { top: 70, right: 30, bottom: 50, left: 60 };
+const BAR_COLOR = '#4a90e2';
+
 const BarChart = (props: Props) => {
   const { towers } = props;
   const svgRef = useRef<SVGSVGElement | null>(null);
@@ -44,13 +49,12 @@ const BarChart = (props: Props) => {
     // Get container width & height for responsiveness
     const width = container.clientWidth;
     const height = container.clientHeight;
-    const margin = { top: 70, right: 30, bottom: 50, left: 60 };
 
     svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio', 'xMidYMid meet');
 
     // Inner drawing area
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+    const innerWidth = width - MARGINS.left - MARGINS.right;
+    const innerHeight = height - MARGINS.top - MARGINS.bottom;
 
     // Create scales
     const x = scaleBand()
@@ -64,7 +68,7 @@ const BarChart = (props: Props) => {
       .range([innerHeight, 0]);
 
     // Create a group for chart contents
-    const chart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+    const chart = svg.append('g').attr('transform', `translate(${MARGINS.left},${MARGINS.top})`);
 
     // Draw bars
     chart
@@ -75,7 +79,7 @@ const BarChart = (props: Props) => {
       .attr('y', d => y(d.count))
       .attr('width', x.bandwidth())
       .attr('height', d => innerHeight - y(d.count))
-      .attr('fill', '#4a90e2');
+      .attr('fill', BAR_COLOR);
 
     // Add x-axis
     chart
@@ -90,6 +94,9 @@ const BarChart = (props: Props) => {
 
     // Add y-axis
     chart.append('g').call(axisLeft(y).ticks(5).tickFormat(format('d')));
+
+    // Remove any existing tooltip
+    select(container).selectAll('.tooltip').remove();
 
     // Add labels on hover each bar
     const tooltip = select(container)
@@ -118,7 +125,7 @@ const BarChart = (props: Props) => {
     svg
       .append('text')
       .attr('x', width / 2)
-      .attr('y', margin.top / 2)
+      .attr('y', MARGINS.top / 2)
       .attr('text-anchor', 'middle')
       .style('fill', '#f8fafc')
       .style('font-weight', 'bold')

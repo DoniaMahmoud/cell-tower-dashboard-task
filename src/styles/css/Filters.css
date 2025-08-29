@@ -20,8 +20,8 @@
 }
 .filters-container input:focus,
 .filters-container select:focus {
-  border-color: rgb(33.15825, 43.2062045455, 55.26375);
-  background: rgb(32.9835, 42.9785, 54.9725);
+  border-color: rgb(48.825, 63.6204545455, 81.375);
+  background: rgb(31.35, 40.85, 52.25);
 }
 .filters-container input::placeholder,
 .filters-container select::placeholder {
@@ -32,14 +32,14 @@
   cursor: pointer;
 }
 .filters-container select:hover {
-  background: rgb(32.9769, 42.9699, 54.9615);
+  background: rgb(32.769, 42.699, 54.615);
 }
 .filters-container .search-input {
-  flex: 1;
+  position: relative;
   display: flex;
   align-items: center;
+  flex: 1;
   gap: 8px;
-  position: relative;
 }
 .filters-container .search-input input {
   width: 100%;
@@ -56,7 +56,7 @@
   transition: transform 0.2s ease;
 }
 .filters-container .search-input button:hover {
-  color: rgb(33.395625, 43.5155113636, 55.659375);
+  color: rgb(72.5625, 94.5511363636, 120.9375);
 }
 @media (max-width: 768px) {
   .filters-container {

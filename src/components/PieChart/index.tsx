@@ -1,24 +1,26 @@
 import React, { useEffect, useRef, useCallback } from 'react';
-import * as d3 from 'd3';
+import { select, scaleOrdinal, pie, arc, sum, rollups, type PieArcDatum } from 'd3';
 import type { CellTower } from '../../types/tower';
 import './PieChart.scss';
 
 type Props = { towers: CellTower[] };
 type PieData = { status: string; value: number };
 
-const PieChart: React.FC<Props> = ({ towers }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+const PieChart: React.FC<Props> = (props: Props) => {
+  const { towers } = props;
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const drawChart = useCallback(() => {
     const container = containerRef.current;
+
     if (!towers.length || !container) {
-      const svg = d3.select(svgRef.current);
+      const svg = select(svgRef.current);
       svg.selectAll('*').remove();
       return;
     }
 
-    const svg = d3.select(svgRef.current);
+    const svg = select(svgRef.current);
     svg.selectAll('*').remove();
 
     const width = container.clientWidth;
@@ -26,7 +28,7 @@ const PieChart: React.FC<Props> = ({ towers }) => {
     const margin = 40;
     const radius = Math.min(width, height) / 2 - margin;
 
-    const counts = d3.rollups(
+    const counts = rollups(
       towers,
       v => v.length,
       d => d.status
@@ -39,26 +41,28 @@ const PieChart: React.FC<Props> = ({ towers }) => {
 
     if (dataset.length === 0) return;
 
-    const total = d3.sum(dataset, d => d.value);
+    const total = sum(dataset, d => d.value);
 
     const g = svg.append('g').attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-    const color = d3
-      .scaleOrdinal<string>()
+    const color = scaleOrdinal<string>()
       .domain(dataset.map(d => d.status))
-      .range(['#16a34a', '#ef4444', '#f59e0b']); // Added a potential third color
+      .range(['#16a34a', '#ef4444']);
 
-    const pie = d3
-      .pie<PieData>()
+    const pieChart = pie<PieData>()
       .sort(null) // Do not sort, keep order from dataset
       .value(d => d.value);
 
-    const path = d3
-      .arc<d3.PieArcDatum<PieData>>()
+    const path = arc<PieArcDatum<PieData>>()
       .outerRadius(radius)
       .innerRadius(radius * 0.5); // Make it a donut chart
 
-    const arcs = g.selectAll('.arc').data(pie(dataset)).enter().append('g').attr('class', 'arc');
+    const arcs = g
+      .selectAll('.arc')
+      .data(pieChart(dataset))
+      .enter()
+      .append('g')
+      .attr('class', 'arc');
 
     arcs
       .append('path')
@@ -91,7 +95,7 @@ const PieChart: React.FC<Props> = ({ towers }) => {
       .style('fill', '#f8fafc')
       .style('font-weight', 'bold')
       .style('font-size', `${Math.max(12, width / 25)}px`) // scale with width
-      .text('Tower Status Distribution');
+      .text('Towers Status Distribution');
 
     // Add a legend
     const legendData = color.domain();
@@ -155,8 +159,14 @@ const PieChart: React.FC<Props> = ({ towers }) => {
   }, [towers, drawChart]);
 
   return (
-    <div ref={containerRef} className="pie-chart-container">
-      <svg ref={svgRef} aria-label="Pie chart showing the distribution of tower statuses" />
+    <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+      <svg
+        ref={svgRef}
+        width="100%"
+        height="100%"
+        role="img"
+        aria-label="Pie chart showing the distribution of tower statuses"
+      />
     </div>
   );
 };
