@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# 📡 Cell Tower Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page web application for monitoring telecom cell towers across cities.  
+Built with **React, TypeScript, Vite, SASS, and D3.js**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- ⚡ [Vite](https://vitejs.dev/) (build tool)
+- 🎨 [SASS/SCSS](https://sass-lang.com/) for styling
+- 📊 [D3.js](https://d3js.org/) for data visualization
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔧 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 1. Clone the Repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/DoniaMahmoud/cell-tower-dashboard-task.git
+cd cell-tower-dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Run Development Server
+
+```bash
+npm run dev
+```
+
+This starts the app locally with hot reload at http://localhost:3000/.
+
+### 4. Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+├── components/     # Reusable UI components
+├── mocks/          # Mock data for development
+├── styles/         # Global and modular SCSS styles
+├── types/          # TypeScript types and interfaces
+└── main.tsx        # App entry point
+```
+
+---
+
+## 🚀 Features
+
+- 📋 **Data Table** – Displays all tower data with columns:
+  - Name
+  - City
+  - Network Type
+  - Status
+  - Signal Strength
+
+- 🔍 **Search Filter** – Quickly find towers by name.
+- 🏙 **City Dropdown Filter** – Filter towers by city.
+- ⚡ **Status Filter** – Filter towers by their current status (Active / Offline).
+- 📊 **Bar Chart** – Visualizes the number of towers per city.
+- 🥧 **Pie Chart** – Shows the distribution of towers by status (Active vs Offline).
+- 📱 **Responsive Design** – Optimized for both mobile and desktop.
