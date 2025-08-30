@@ -44,7 +44,7 @@ const BarChart = (props: Props) => {
 
     // --- D3 setup ---
     const svg = select(svgRef.current);
-    svg.selectAll('*').remove(); // clear old chart before re-rendering
+    svg.selectAll('*').remove();
 
     // Get container width & height for responsiveness
     const width = container.clientWidth;
@@ -52,7 +52,6 @@ const BarChart = (props: Props) => {
 
     svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio', 'xMidYMid meet');
 
-    // Inner drawing area
     const innerWidth = width - MARGINS.left - MARGINS.right;
     const innerHeight = height - MARGINS.top - MARGINS.bottom;
 
@@ -129,7 +128,7 @@ const BarChart = (props: Props) => {
       .attr('text-anchor', 'middle')
       .style('fill', '#f8fafc')
       .style('font-weight', 'bold')
-      .style('font-size', `${Math.max(12, width / 25)}px`) // scale with width
+      .style('font-size', `${Math.max(12, width / 25)}px`)
       .text('Towers Count by City');
   }, [towers]);
 
@@ -152,11 +151,7 @@ const BarChart = (props: Props) => {
   }, [drawChart]);
 
   return (
-    <div
-      ref={containerRef}
-      className="bar-chart-container"
-      style={{ width: '100%', height: '100%' }}
-    >
+    <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
       <svg
         ref={svgRef}
         width="100%"
